@@ -34,6 +34,10 @@ from .sklearn_classification import (
     SKLearnSVMClassifier,
 )
 
+from .scratch_classfication import (
+    ScratchKNNClassifier,
+)
+
 from .model_selection import (
     k_fold_cross_validation,
     plot_cross_validation_results,
@@ -67,6 +71,9 @@ __all__ = [
     'SKLearnKNNClassifier',
     'SKLearnNaiveBayes',
     'SKLearnSVMClassifier',
+
+    # Scratch classification
+    'ScratchKNNClassifier',
 
     # Model Selection
     'k_fold_cross_validation',
