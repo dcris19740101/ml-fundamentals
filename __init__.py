@@ -1,89 +1,86 @@
 """
-Machine Learning Models
+Supervised learning models.
 
-Organized by learning paradigm:
-- supervised: Models that learn from labeled data (X, y)
-- unsupervised: Models that discover patterns in unlabeled data (X only)
+Models that learn from labeled data (X, y) to make predictions.
 
-Each category contains:
-- base.py: Abstract base classes defining interfaces
+Organization:
+- base.py: Abstract base classes (SupervisedModel, RegressionModel, ClassificationModel)
 - sklearn_*.py: Implementations using scikit-learn
 - keras_*.py: Implementations using TensorFlow/Keras
 - scratch_*.py: From-scratch implementations (Phase 2 - January 2026)
 """
 
-from .base import BaseModel
+from .base import SupervisedModel, RegressionModel, ClassificationModel
 
-# Import from supervised
-from .supervised import (
-    # Base classes
-    SupervisedModel,
-    RegressionModel,
-    ClassificationModel,
+from .sklearn_base import (
+    SKLearnRegressionBase,
+    SKLearnClassificationBase,
+)
 
-    # Regression models
+from .sklearn_regression import (
     SKLearnLinearRegression,
     SKLearnRidgeRegression,
     SKLearnLassoRegression,
     SKLearnDecisionTreeRegressor,
     SKLearnRandomForestRegressor,
+)
 
-    # Scratch classification
-    ScratchKNNClassifier,
-
-    # Classification models
+from .sklearn_classification import (
     SKLearnLogisticRegression,
     SKLearnDecisionTreeClassifier,
     SKLearnRandomForestClassifier,
+    SKLearnKNNClassifier,
+    SKLearnNaiveBayes,
+    SKLearnSVMClassifier,
 )
 
-# Import from unsupervised
-from .unsupervised import (
-    # Base classes
-    UnsupervisedModel,
-    ClusteringModel,
-
-    # Clustering models
-    SKLearnKMeans,
-    SKLearnDBSCAN,
+from .scratch_classfication import (
+    ScratchKNNClassifier,
 )
 
-from .neural_networks import (
-    KerasANN,
-    KerasCNN,
+from .model_selection import (
+    k_fold_cross_validation,
+    plot_cross_validation_results,
+    grid_search_cv,
+    plot_grid_search_results,
 )
+
+from .sklearn_lda import SKLearnLDA
 
 __all__ = [
-    # Base class
-    'BaseModel',
-    
-    # Supervised base classes
+    # Base classes
     'SupervisedModel',
     'RegressionModel',
     'ClassificationModel',
 
-    # Supervised models
+    # Scikit-learn base classes
+    'SKLearnRegressionBase',
+    'SKLearnClassificationBase',
+    
+    # Regression
     'SKLearnLinearRegression',
     'SKLearnRidgeRegression',
     'SKLearnLassoRegression',
     'SKLearnDecisionTreeRegressor',
     'SKLearnRandomForestRegressor',
+    
+    # Classification
     'SKLearnLogisticRegression',
     'SKLearnDecisionTreeClassifier',
     'SKLearnRandomForestClassifier',
+    'SKLearnKNNClassifier',
+    'SKLearnNaiveBayes',
+    'SKLearnSVMClassifier',
 
     # Scratch classification
     'ScratchKNNClassifier',
-    
-    # Unsupervised base classes
-    'UnsupervisedModel',
-    'ClusteringModel',
-    
-    # Unsupervised models
-    'SKLearnKMeans',
-    'SKLearnDBSCAN',
 
-    # Neural Networks
-    'KerasANN',
-    'KerasCNN',
+    # Model Selection
+    'k_fold_cross_validation',
+    'plot_cross_validation_results',
+    'grid_search_cv',
+    'plot_grid_search_results',
+    
+    # Dimensionality Reduction
+    'SKLearnLDA',
 ]
