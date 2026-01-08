@@ -28,6 +28,9 @@ from .supervised import (
     SKLearnDecisionTreeRegressor,
     SKLearnRandomForestRegressor,
 
+    # Scratch classification
+    ScratchKNNClassifier,
+
     # Classification models
     SKLearnLogisticRegression,
     SKLearnDecisionTreeClassifier,
@@ -68,6 +71,9 @@ __all__ = [
     'SKLearnLogisticRegression',
     'SKLearnDecisionTreeClassifier',
     'SKLearnRandomForestClassifier',
+
+    # Scratch classification
+    'ScratchKNNClassifier',
     
     # Unsupervised base classes
     'UnsupervisedModel',
