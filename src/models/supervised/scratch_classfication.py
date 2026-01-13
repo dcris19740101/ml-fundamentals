@@ -7,10 +7,6 @@ All classes prefixed with 'Scratch' to indicate from scratch implementation.
 import numpy as np
 import pandas as pd
 from sklearn.metrics import (
-    r2_score,
-    mean_squared_error,
-    mean_absolute_error,
-    accuracy_score,
     confusion_matrix,
     classification_report
 )
@@ -32,6 +28,10 @@ class ScratchKNNClassifier(ClassificationModel):
     ----------
     n_neighbors : int, default=5
         Number of neighbors to use
+    weights : {'uniform', 'distance'}, default='uniform'
+        Weight function:
+        - 'uniform': all neighbors weighted equally
+        - 'distance': closer neighbors have more influence
     metric : str, default='euclidean'
         Distance metric ('euclidean', 'manhattan', 'minkowski')
     p : int, default=2
@@ -39,8 +39,8 @@ class ScratchKNNClassifier(ClassificationModel):
         
     Examples
     --------
-    >>> from src.models.supervised import SKLearnKNNClassifier
-    >>> model = SKLearnKNNClassifier(n_neighbors=5)
+    >>> from src.models.supervised import ScratchKNNClassifier
+    >>> model = ScratchKNNClassifier(n_neighbors=5)
     >>> model.fit(X_train, y_train)
     >>> predictions = model.predict(X_test)
     
